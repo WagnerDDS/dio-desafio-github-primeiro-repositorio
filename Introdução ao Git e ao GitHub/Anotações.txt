@@ -1,1 +1,28 @@
-Link para download do Git:https://git-scm.com/downloads
+# Anotações
+## Estrutura do Git - 18/05
+ - O git é formado por Objetos
+	- Blobs = contém os arquivos e é formado por tipo, tamanho e conteúdo.
+	-Trees = funciona como uma coleção de Blobs apontando para os mesmos ou para outras Trees. É formada por tipo, tamanho, blobs + nome do arquivo.
+	- Commits = relaciona tree + parent + autor + mensagem + timestamp
+## Chaves SSH e Tokens 23/5
+ 1. para acessarmos o GitHub remotamente, é preverível utilizarmos o protocolo SSH. Para isto, precisamos gerar nosso par de chaves (pública e privada).
+ 2. $ssg-keygen -t ed25519 -C (email@servidor.com)
+ 3. depois devemos ir no nosso perfil no GitHub e colocar a chave pública lá na aba security.
+ 4. o próximo passo é voltarmos ao GitBash e inicializarmos o agente
+	- $eval $(ssh-agent -s)
+	- $ ssh-add id_ed25519 (adicionando nossa chave privada)
+## Comandos Git - 23/5 
+- git init (inicializa o diretório como repositório git)
+- git add (adiciona os arquivos para o STAGE)
+- git commit (faz o commit dos arquivos no STAGE)
+- git status (exibe o status dos arquivos)
+- git remote add origin (faz o casamento do seu repositório local com o remoto)
+- git push origin main (ou outro branch) envia os arquivos para a nuvem do GitHub
+- git pull faz o download dos arquivos do servidor para máquina local (dessa forma podemos resolver conflitos entre arquivos locais e remotos de um mesmo repositório)
+- git clone (url) copia um repositório para a máquina local
+## Tipos de Arquivos Git
+ - tracked (o Git tem ciência)
+	- unmodified
+	- modified
+	- staged
+ - untracked (o Git não tem ciência)
